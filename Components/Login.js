@@ -44,31 +44,23 @@ const Login = () => {
         );
       case 'phoneNumber':
         return (
+          //Country picker with country code for phone text input
           <View >
-           <View style={{marginBottom:-15,marginLeft:-30}}>
-            <CountryPicker
+          <View style={{marginBottom:-15,marginLeft:-30}}>
+          <CountryPicker
           countryCode={country.cca2}
           withFilter
           withFlag
           onSelect={handleCountrySelect}
-        
-        />
-        </View>
+          />
+          </View>
            <Text style={{ marginLeft: 2 , color:'black',fontSize:12,marginTop:-9,}}>{`+${country.callingCode}`}</Text>
-                 {/* <CountryPicker
-          countryCode={country.cca2}
-          withFilter
-          withFlag
-          onSelect={handleCountrySelect}
-         flagStyle={{marginRight:2,}}
-        /> */}
-            <TextInput style={styles.input} placeholder="Phone Number"  placeholderTextColor='#999'
+           <TextInput style={styles.input} placeholder="Phone Number"  placeholderTextColor='#999'
               onChangeText={(text) => {
               const numericValue = text.replace(/[^0-9]/g, '');
               setPhoneNumber(numericValue);
               }}
               keyboardType="numeric"
-            
            />
             <Text style={{color:'black' , marginBottom:10 , marginLeft:-25,fontSize:12}}>Password</Text>
             <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}  placeholderTextColor='#999'/>
